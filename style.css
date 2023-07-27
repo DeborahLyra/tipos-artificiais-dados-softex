@@ -1,27 +1,27 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: lightpink;
     text-align: center;
     margin-top: 200px;
     color: #eee;
 }
 
-h1{
+h1 {
     font-size: 50px;
     margin-bottom: 20px;
 }
 
-p{
+p {
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-button{
+button {
     padding: 20px 60px;
     border-radius: 10px;
     color: #eee;
@@ -32,12 +32,12 @@ button{
     transition: 0.3s ease-in;
 }
 
-button:hover{
+button:hover {
     background-color: hotpink;
     border-color: #eee;
     color: black;
 }
 
-button:focus{
+button:focus {
     outline: none;
 }
