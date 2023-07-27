@@ -49,7 +49,7 @@ button.addEventListener('click', () => {
     if (winner[0] == 'branco') {
         alert(`Ninguém ganhou, ${winner[1]} votos nulos`)
     } else {
-        alert(`O candidato vencedor é ${winner[0]}, com ${winner[1]}`)
+        alert(`O candidato vencedor é ${winner[0]}, com ${winner[1]} votos`)
     }
 })
 
