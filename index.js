@@ -54,21 +54,21 @@ button.addEventListener('click', () => {
 })
 
   //console.log(candidatesArray)
-    /* 
+/*
 
-    
+ 
 
- const winner =  Object.entries(candidates).reduce((prev, [name, value]) => {
-     console.log('outros',[name, value])
-     console.log('prev', prev)
-         if (value > prev[1]) {
-             return [name, value];
-         } else if (value == prev[1]) {
-             return alert('Empate, continue votando')
-         } else {
-             return prev
-         }
-     }, ["", 0])
-  */
+const winner =  Object.entries(candidates).reduce((prev, [name, value]) => {
+ console.log('outros',[name, value])
+ console.log('prev', prev)
+     if (value > prev[1]) {
+         return [name, value];
+     } else if (value == prev[1]) {
+         return alert('Empate, continue votando')
+     } else {
+         return prev
+     }
+ }, ["", 0])
+*/
 
 
