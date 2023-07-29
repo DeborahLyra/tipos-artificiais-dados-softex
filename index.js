@@ -13,62 +13,50 @@
 
 const button = document.querySelector('button');
 
-const candidates = {
+
+const voteOptions = {
+    "889": "x",
+    "847": "y",
+    "515": "z",
+    "0": "branco",
+}
+
+let candidates = {
     x: 0,
     y: 0,
     z: 0,
     branco: 0,
 }
 
-button.addEventListener('click', () => {
+button.addEventListener('click', addVote)
 
-    let vote = Number(prompt('Qual o número do seu candidato:'));
+function addVote() {
+    const vote = prompt('Qual o número do seu candidato:'); 
 
-    let confirmation = prompt('Deseja finalizar a votação? sim/não');
+    console.log(voteOptions[vote])
 
-    if (confirmation === 'sim') {
-        if (vote == 889) {
-            candidates.x += 1
-        } else if (vote == 874) {
-            candidates.y += 1
-        } else if (vote == 515) {
-            candidates.z += 1
-        } else if (vote == 0) {
-            candidates.branco += 1
-        } else {
-            alert('Número inválido')
+    if (!voteOptions[vote]) return alert('Voto inválido, digite novamente');
+
+    if (voteOptions[vote]) {
+        candidates[voteOptions[vote]] += 1 
+    }
+
+    const confirmation = prompt('Deseja finalizar a votação? sim/não');
+    if (confirmation == 'sim') {
+        console.log(candidates)
+
+        const max = Object.entries(candidates).reduce((max, entry) => entry[1] >= max[1] ? entry : max, [0, -Infinity]) 
+                           
+        const maxVotes = Math.max(...Object.values(candidates));
+
+        const numCandidatesWithMaxVotes = Object.values(candidates).filter(votes => votes === maxVotes).length;
+
+        if (numCandidatesWithMaxVotes > 1) {
+            console.log('Houve empate na votação');
+            return; 
         }
-    } else {
-        alert('Clique no botão novamente para votar')
+        console.log(`O vencedor é ${max[0]} com ${max[1]} votos`)
+        console.log(`Quantidade de votos de cada candidato: ${candidates.x} votos para o candidato X, ${candidates.y} votos para o candidato Y, ${candidates.z} votos para o candidato Z, ${candidates.branco} votos brancos`) 
     }
-
-    const winner = Object.entries(candidates).reduce((prev, [name, value]) => {
-        return value > prev[1] ? [name, value] : prev
-    }, ['', 0])
-
-    if (winner[0] == 'branco') {
-        alert(`Ninguém ganhou, ${winner[1]} votos nulos`)
-    } else {
-        alert(`O candidato vencedor é ${winner[0]}, com ${winner[1]} votos`)
-    }
-})
-
-  //console.log(candidatesArray)
-/*
-
- 
-
-const winner =  Object.entries(candidates).reduce((prev, [name, value]) => {
- console.log('outros',[name, value])
- console.log('prev', prev)
-     if (value > prev[1]) {
-         return [name, value];
-     } else if (value == prev[1]) {
-         return alert('Empate, continue votando')
-     } else {
-         return prev
-     }
- }, ["", 0])
-*/
-
+}
 
